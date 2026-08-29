@@ -75,6 +75,34 @@ Economic_Indicator_Analyzer/
 └── ftse100_dashboard.png
 ```
 
+## How to Run
+
+### 1. Install Python
+
+Make sure Python 3.13 or later is installed.
+
+### 2. Install the required libraries
+
+Open a terminal in the project folder and run:
+
+```bash
+pip install pandas numpy matplotlib yfinance
+```
+
+### 3. Run the project
+
+Run the scripts in the following order:
+
+```bash
+python market_data.py
+python analyse_data.py
+python bitcoin_data.py
+python dashboard.py
+python report.py
+```
+
+The scripts download financial data, analyse market performance and generate financial statistics and visualisations.
+
 ## Purpose
 
 This project was developed to build practical skills in:
