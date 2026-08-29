@@ -7,9 +7,11 @@ data = bitcoin.history(period="1y")
 
 data = data[["Close"]]
 
+data = data.reset_index()
+
 data = data.dropna()
 
-data.to_csv("bitcoin_history.csv")
+data.to_csv("bitcoin_history.csv", index=False)
 
 print("Bitcoin data prepared!")
 print("Trading days:", len(data))
@@ -26,6 +28,13 @@ bitcoin_data["Date"] = pd.to_datetime(
     bitcoin_data["Date"], utc=True
 ).dt.date
 
+# Convert FTSE data
+ftse_data = pd.read_csv("ftse100_history.csv")
+
+ftse_data["Date"] = pd.to_datetime(
+    ftse_data["Date"], utc=True
+).dt.date
+
 # Rename Bitcoin column
 bitcoin_data = bitcoin_data.rename(
     columns={"Close": "Bitcoin"}
@@ -33,7 +42,7 @@ bitcoin_data = bitcoin_data.rename(
 
 # Combine FTSE and Bitcoin data
 ftse_bitcoin = pd.merge(
-    data[["Date", "Close"]],
+    ftse_data[["Date", "Close"]],
     bitcoin_data[["Date", "Bitcoin"]],
     on="Date",
     how="inner"
