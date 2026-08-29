@@ -1,4 +1,4 @@
-# Economic Indicator Analyzer
+# MarketLens
 
 ## Overview
 
@@ -56,7 +56,7 @@ The project includes a dashboard visualising FTSE 100 performance, its 30-day mo
 ## Project Structure
 
 ```text
-Economic_Indicator_Analyzer/
+MarketLens/
 │
 ├── .gitignore
 ├── README.md
